@@ -1,0 +1,35 @@
+{
+    "routes": [
+      {
+        "_id": 1,
+        "route": "Route 1",
+        "expectedArrivalTime": "2023-09-14T08:00:00Z",
+        "realArrivalTime": "2023-09-14T08:30:00Z"
+      },
+      {
+        "_id": 2,
+        "route": "Route 2",
+        "expectedArrivalTime": "2023-09-14T09:00:00Z",
+        "realArrivalTime": "2023-09-14T09:15:00Z"
+      },
+      {
+        "_id": 3,
+        "route": "Route 3",
+        "expectedArrivalTime": "2023-09-14T10:00:00Z",
+        "realArrivalTime": "2023-09-14T10:30:00Z"
+      },
+      {
+        "_id": 4,
+        "route": "Route 4",
+        "expectedArrivalTime": "2023-09-14T11:00:00Z",
+        "realArrivalTime": "2023-09-14T11:15:00Z"
+      }
+    ],
+    "transportTotals": {
+      "Bus": 6515,
+      "Train": 22803,
+      "Ferries": 16288,
+      "Other": 19545
+    }
+  }
+  

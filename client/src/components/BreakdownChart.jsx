@@ -1,13 +1,39 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { ResponsivePie } from "@nivo/pie";
 import { Box, Typography, useTheme } from "@mui/material";
-import { useGetSalesQuery } from "state/api";
 
 const BreakdownChart = ({ isDashboard = false }) => {
-  const { data, isLoading } = useGetSalesQuery();
   const theme = useTheme();
+  const [data, setData] = useState(null);
+  const [total, setTotal] = useState(0); // State to hold the total sales
 
-  if (!data || isLoading) return "Loading...";
+  useEffect(() => {
+    // Fetch data from the local JSON file
+    fetch("/fakeData.json")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`Network response was not ok (status ${response.status})`);
+        }
+        return response.json();
+      })
+      .then((jsonData) => {
+        setData(jsonData.transportTotals); // Extract 'salesByCategory' data
+        // Calculate the total sales
+        const totalSales = Object.values(jsonData.transportTotals).reduce(
+          (acc, curr) => acc + curr,
+          0
+        );
+        setTotal(totalSales);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
+
+  if (data === null) {
+    // Data is still loading
+    return "Loading...";
+  }
 
   const colors = [
     theme.palette.secondary[500],
@@ -15,14 +41,12 @@ const BreakdownChart = ({ isDashboard = false }) => {
     theme.palette.secondary[300],
     theme.palette.secondary[500],
   ];
-  const formattedData = Object.entries(data.salesByCategory).map(
-    ([category, sales], i) => ({
-      id: category,
-      label: category,
-      value: sales,
-      color: colors[i],
-    })
-  );
+  const formattedData = Object.entries(data).map(([category, sales], i) => ({
+    id: category,
+    label: category,
+    value: sales,
+    color: colors[i],
+  }));
 
   return (
     <Box
@@ -130,7 +154,7 @@ const BreakdownChart = ({ isDashboard = false }) => {
         }}
       >
         <Typography variant="h6">
-          {!isDashboard && "Total:"} ${data.yearlySalesTotal}
+          {!isDashboard && "Total:"} {total}
         </Typography>
       </Box>
     </Box>

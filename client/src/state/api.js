@@ -27,6 +27,10 @@ export const api = createApi({
       query: () => "client/customers",
       providesTags: ["Customers"],
     }),
+    getRoute: build.query({
+      query: () => "client/customers",
+      providesTags: ["Customers"],
+    }),
     getTransactions: build.query({
       query: ({ page, pageSize, sort, search }) => ({
         url: "client/transactions",
