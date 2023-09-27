@@ -1,7 +1,7 @@
 const WebSocket = require('ws');
 const fs = require('fs');
 
-const url = 'ws://your-server-url'; // Replace with your WebSocket server URL
+const url = 'localhost:42069/socket'; // Replace with your WebSocket server URL
 const outputFilePath = 'received-file.txt'; // Specify the path where you want to save the received file
 
 const socket = new WebSocket(url);

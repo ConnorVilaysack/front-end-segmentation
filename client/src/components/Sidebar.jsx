@@ -17,9 +17,7 @@ import {
   ChevronLeft,
   ChevronRightOutlined,
   HomeOutlined,
-  ShoppingCartOutlined,
   Groups2Outlined,
-  ReceiptLongOutlined,
   PublicOutlined,
   PointOfSaleOutlined,
   TodayOutlined,
@@ -38,32 +36,20 @@ const navItems = [
     text: "Dashboard",
     icon: <HomeOutlined />,
   },
+  
+
   {
-    text: "Client Facing",
-    icon: null,
-  },
-  {
-    text: "Products",
-    icon: <ShoppingCartOutlined />,
-  },
-  {
-    text: "Customers",
+    text: "TransportRoutes",
     icon: <Groups2Outlined />,
   },
-  {
-    text: "Transactions",
-    icon: <ReceiptLongOutlined />,
-  },
+
   {
     text: "Geography",
     icon: <PublicOutlined />,
   },
+  
   {
-    text: "Sales",
-    icon: null,
-  },
-  {
-    text: "Overview",
+    text: "RouteFrequency",
     icon: <PointOfSaleOutlined />,
   },
   {
@@ -132,7 +118,7 @@ const Sidebar = ({
               <FlexBetween color={theme.palette.secondary.main}>
                 <Box display="flex" alignItems="center" gap="0.5rem">
                   <Typography variant="h4" fontWeight="bold">
-                    ECOMVISION
+                    SEGMENTATION
                   </Typography>
                 </Box>
                 {!isNonMobile && (

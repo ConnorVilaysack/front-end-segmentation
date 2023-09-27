@@ -3,7 +3,7 @@ import { Box } from "@mui/material";
 import Header from "components/Header";
 import { DataGrid } from "@mui/x-data-grid";
 
-const Customers = () => {
+const TransportRoutes = () => {
 
   const [routesData, setRoutesData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -85,4 +85,4 @@ const Customers = () => {
   );
 };
 
-export default Customers;
+export default TransportRoutes;

@@ -15,48 +15,21 @@ import {
   useTheme,
   useMediaQuery,
 } from "@mui/material";
-import { DataGrid } from "@mui/x-data-grid";
+
 import BreakdownChart from "components/BreakdownChart";
-import OverviewChart from "components/OverviewChart";
+
 import { useGetDashboardQuery } from "state/api";
 import StatBox from "components/StatBox";
+import TransportRoutes from "scenes/transportRoutes"; // Make sure to provide the correct path to your TransportRoutes component
+import RouteFrequency from "scenes/routeFrequency";
+
 
 const Dashboard = () => {
   const theme = useTheme();
   const isNonMediumScreens = useMediaQuery("(min-width: 1200px)");
-  const { data, isLoading } = useGetDashboardQuery();
+  const { data } = useGetDashboardQuery();
 
-  const columns = [
-    {
-      field: "_id",
-      headerName: "ID",
-      flex: 1,
-    },
-    {
-      field: "userId",
-      headerName: "User ID",
-      flex: 1,
-    },
-    {
-      field: "createdAt",
-      headerName: "CreatedAt",
-      flex: 1,
-    },
-    {
-      field: "products",
-      headerName: "# of Products",
-      flex: 0.5,
-      sortable: false,
-      renderCell: (params) => params.value.length,
-    },
-    {
-      field: "cost",
-      headerName: "Cost",
-      flex: 1,
-      renderCell: (params) => `$${Number(params.value).toFixed(2)}`,
-    },
-  ];
-
+  
   return (
     <Box m="1.5rem 2.5rem">
       <FlexBetween>
@@ -113,12 +86,13 @@ const Dashboard = () => {
         />
         <Box
           gridColumn="span 8"
-          gridRow="span 2"
+          gridRow="span 3"
           backgroundColor={theme.palette.background.alt}
-          p="1rem"
-          borderRadius="0.55rem"
+       
+          
+          
         >
-          <OverviewChart view="sales" isDashboard={true} />
+          <RouteFrequency />
         </Box>
         <StatBox
           title="Monthly Sales"
@@ -173,12 +147,9 @@ const Dashboard = () => {
             },
           }}
         >
-          <DataGrid
-            loading={isLoading || !data}
-            getRowId={(row) => row._id}
-            rows={(data && data.transactions) || []}
-            columns={columns}
-          />
+         <Box gridColumn="span 7" gridRow="span 2">
+        <TransportRoutes />
+        </Box>
         </Box>
         <Box
           gridColumn="span 4"
@@ -188,7 +159,7 @@ const Dashboard = () => {
           borderRadius="0.55rem"
         >
           <Typography variant="h6" sx={{ color: theme.palette.secondary[100] }}>
-            Sales By Category
+            # of Transportation Types
           </Typography>
           <BreakdownChart isDashboard={true} />
           <Typography
@@ -196,8 +167,7 @@ const Dashboard = () => {
             fontSize="0.8rem"
             sx={{ color: theme.palette.secondary[200] }}
           >
-            Breakdown of real states and information via category for revenue
-            made for this year and total sales.
+            Breakdown of transportation types
           </Typography>
         </Box>
       </Box>

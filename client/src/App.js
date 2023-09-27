@@ -6,12 +6,12 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { themeSettings } from "theme";
 import Layout from "scenes/layout";
 import Dashboard from "scenes/dashboard";
-import Products from "scenes/products";
-import Customers from "scenes/customers";
+
+import TransportRoutes from "scenes/transportRoutes";
 import Transactions from "scenes/transactions";
 import Geography from "scenes/geography";
 
-import Overview from "scenes/overview";
+import RouteFrequency from "scenes/routeFrequency";
 
 
 import Daily from "scenes/daily";
@@ -41,11 +41,11 @@ function App() {
             <Route element={<Layout />}>
               <Route path="/" element={<Navigate to="/dashboard" replace />} />
               <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/products" element={<Products />} />
-              <Route path="/customers" element={<Customers />} />
+            
+              <Route path="/transportRoutes" element={<TransportRoutes />} />
               <Route path="/transactions" element={<Transactions />} />
               <Route path="/geography" element={<Geography />} />
-              <Route path="/overview" element={<Overview />} />
+              <Route path="/routeFrequency" element={<RouteFrequency />} />
               <Route path="/daily" element={<Daily />} />
               <Route path="/monthly" element={<Monthly />} />
               <Route path="/breakdown" element={<Breakdown />} />
