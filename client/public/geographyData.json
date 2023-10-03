@@ -1,0 +1,51 @@
+[
+    {
+        "Time": "00:00",
+        "PopulationDensity": 500,
+        "Location": {
+            "Latitude": 40.7128,
+            "Longitude": -74.0060
+        }
+    },
+    {
+        "Time": "01:00",
+        "PopulationDensity": 510,
+        "Location": {
+            "Latitude": 40.7128,
+            "Longitude": -74.0060
+        }
+    },
+    {
+        "Time": "02:00",
+        "PopulationDensity": 520,
+        "Location": {
+            "Latitude": 40.7128,
+            "Longitude": -74.0060
+        }
+    },
+    {
+        "Time": "03:00",
+        "PopulationDensity": 530,
+        "Location": {
+            "Latitude": 40.7128,
+            "Longitude": -74.0060
+        }
+    },
+    {
+        "Time": "04:00",
+        "PopulationDensity": 540,
+        "Location": {
+            "Latitude": 40.7128,
+            "Longitude": -74.0060
+        }
+    },
+    
+    {
+        "Time": "23:00",
+        "PopulationDensity": 510,
+        "Location": {
+            "Latitude": 40.7128,
+            "Longitude": -74.0060
+        }
+    }
+]
